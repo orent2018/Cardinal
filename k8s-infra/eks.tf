@@ -9,7 +9,7 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.21"
 
-  subnet_ids = [aws_subnet.CardinalPrvSubnet.id]
+  subnet_ids = [aws_subnet.CardinalPrvSubnet1.id, aws_subnet.CardinalPrvSubnet2.id]
   vpc_id     = aws_vpc.CardinalVPC.id
   eks_managed_node_groups = {
     min_size     = 2
