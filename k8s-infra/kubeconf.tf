@@ -25,7 +25,7 @@ users:
       args:
         - "token"
         - "-i"
-        - "${var.cluster-name}"
+        - "${data.aws_eks_cluster.CardinalDemo.name}"
 KUBECONFIG
 }
 
