@@ -27,14 +27,11 @@ module "eks" {
 }
 
 # Output the Cluster endpoint and certificate
-data "aws_eks_cluster" "CardinalDemo" {
-  name = local.cluster_name
-}
-
+  
 output "endpoint" {
-  value = data.aws_eks_cluster.CardinalDemo.endpoint
+  value = modules.eks.endpoint
 }
 
 output "kubeconfig-certificate-authority-data" {
-  value = data.aws_eks_cluster.CardinalDemo.certificate_authority[0].data
+  value = modules.eks.certificate_authority[0].data
 }
