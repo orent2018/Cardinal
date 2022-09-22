@@ -9,19 +9,20 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.21"
 
-  subnet_ids      = aws_subnet.CardinalPrvSubnet.id
+  subnet_ids      = [aws_subnet.CardinalPrvSubnet.id]
   vpc_id          = aws_vpc.CardinalVPC.id
+  eks_managed_node_groups = {
+        min_size     = 2
+        max_size     = 4
+        desired_size = 2
 
-  node_groups = {
-    first = {
-      desired_capacity = 2
-      max_capacity     = 4
-      min_capacity     = 2
-
-      instance_type = "t2.small"
+        instance_types = ["t2.small"]
+        labels = {
+          Environment = "Demo"
+        }
+        tags = {
+          ExtraTag = "CardinalDemoWorkers"
+        }
+      }
     }
-  }
-
-  write_kubeconfig   = true
-  config_output_path = "./"
 }
