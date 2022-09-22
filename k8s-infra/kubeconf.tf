@@ -6,7 +6,7 @@ apiVersion: v1
 clusters:
 - cluster:
     server: ${data.aws_eks_cluster.CardinalEKS.endpoint}
-    certificate-authority-data: ${data.aws_eks_cluster_auth.CardinalEKS.certificate_authority[0].data}
+    certificate-authority-data: ${data.aws_eks_cluster.CardinalEKS.certificate_authority[0].data}
   name: kubernetes
 contexts:
 - context:
