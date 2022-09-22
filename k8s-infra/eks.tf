@@ -23,6 +23,5 @@ module "eks" {
         tags = {
           ExtraTag = "CardinalDemoWorkers"
         }
-      }
-    }
+  }
 }
