@@ -27,18 +27,18 @@ module "eks" {
 }
 
 # Define the data sources
-  
+
 data "aws_eks_cluster" "CardinalEKS" {
   name = module.eks.cluster_id
 }
-  
+
 data "aws_eks_cluster_auth" "CardinalEKS" {
   name = module.eks.cluster_id
 }
 
-  
+
 # Output the Cluster endpoint and certificate
-  
+
 output "endpoint" {
   value = data.aws_eks_cluster.CardinalEKS.endpoint
 }
