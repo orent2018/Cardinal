@@ -44,5 +44,9 @@ output "endpoint" {
 }
 
 output "kubeconfig-certificate-authority-data" {
-  value = data.aws_eks_cluster_auth.CardinalEKS.certificate_authority[0].data
+  value = data.aws_eks_cluster.CardinalEKS.certificate_authority[0].data
+}
+
+output "eks-cluster-token" {
+  value = base64decode(data.aws_eks_cluster_auth.CardinalEKS.token)
 }
