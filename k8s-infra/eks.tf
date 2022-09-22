@@ -29,9 +29,9 @@ module "eks" {
 # Output the Cluster endpoint and certificate
   
 output "endpoint" {
-  value = modules.eks.endpoint
+  value = module.eks.endpoint
 }
 
 output "kubeconfig-certificate-authority-data" {
-  value = modules.eks.certificate_authority[0].data
+  value = module.eks.certificate_authority[0].data
 }
