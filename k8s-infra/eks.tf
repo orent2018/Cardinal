@@ -4,13 +4,13 @@ locals {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "12.2.0"
+  version = "18.2.0"
 
-  cluster_name    = "${local.cluster_name}"
+  cluster_name    = local.cluster_name
   cluster_version = "1.21"
-  subnets         = [aws_subnet.CardinalPrvSubnet.cidr_block]
 
-  vpc_id = aws_vpc.CardinalVPC.id
+  subnet_ids      = aws_subnet.CardinalPrvSubnet.id
+  vpc_id          = aws_vpc.CardinalVPC.id
 
   node_groups = {
     first = {
