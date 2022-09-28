@@ -1,13 +1,17 @@
 Manifests for building private container registry in registry namespace
 -----------------------------------------------------------------------
 
+Create a dedicated namespace called regsitry:
+
+    > kubectl create namespace registry
+    
 Use openssl to create a private key and certificate for the registry service:
 
     > openssl req -x509 -newkey rsa:4096 -days 365 -nodes -sha256 -keyout certs/tls.key -out certs/tls.crt
    
 Uses a secret built from the private key and certificate created:
 
-    > kubectl create secret tls certs-secret --cert=certs/tls.crt --key=certs/tls.key
+    > kubectl create secret tls certs-secret --cert=certs/tls.crt --key=certs/tls.key -n registry
 
 1) Create PV and PVC for images.
 
