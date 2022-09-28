@@ -1,7 +1,7 @@
 Manifests for building private container registry in registry namespace
 -----------------------------------------------------------------------
 
-Create a dedicated namespace called regsitry:
+Create a dedicated namespace called registry:
 
     > kubectl create namespace registry
     
