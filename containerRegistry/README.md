@@ -7,7 +7,7 @@ Use openssl to create a private key and certificate for the registry service:
    
 Uses a secret built from the private key and certificate created:
 
-   > kubectl create secret tls certs-secret --cert=certs/tls.crt --key=certs/tls.key
+    > kubectl create secret tls certs-secret --cert=certs/tls.crt --key=certs/tls.key
 
 1) Create PV and PVC for images.
 
