@@ -12,16 +12,18 @@ module "eks" {
   subnet_ids = [aws_subnet.CardinalPrvSubnet1.id, aws_subnet.CardinalPrvSubnet2.id]
   vpc_id     = aws_vpc.CardinalVPC.id
   eks_managed_node_groups = {
-    min_size     = 2
-    max_size     = 4
-    desired_size = 2
+    main = {
+      min_size     = 2
+      max_size     = 4
+      desired_size = 2
 
-    instance_types = ["t2.small"]
-    labels = {
-      Environment = "Demo"
-    }
-    tags = {
-      ExtraTag = "CardinalDemoWorkers"
+      instance_types = ["t2.small"]
+      labels = {
+        Environment = "Demo"
+      }
+      tags = {
+        ExtraTag = "CardinalDemoWorkers"
+      }
     }
   }
 }
@@ -47,6 +49,6 @@ output "kubeconfig-certificate-authority-data" {
   value = data.aws_eks_cluster.CardinalEKS.certificate_authority[0].data
 }
 
-output "eks-cluster-token" {
-  value = base64decode(data.aws_eks_cluster_auth.CardinalEKS.token)
-}
+#output "eks-cluster-token" {
+#  value = base64decode(data.aws_eks_cluster_auth.CardinalEKS.token)
+#}
