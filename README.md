@@ -10,6 +10,8 @@ the Internet GW in the public subnet and routing to allow outgoing access to the
 
 The EKS cluster with k8s version 1.21 has been created using the terraform eks module. It has the public access endpoint enabled to allow external interactions with the cluster.  It has 2 worker nodes one in each of the 2 private subnets.
 
+The traffic to the cluster should be further restricted using dedicated security groups as the default one allows all traffic into the cluster.
+
 The cluster is named Cardinal-EKS:
 
     > kubectl cluster-info
