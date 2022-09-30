@@ -12,14 +12,14 @@ The EKS cluster with k8s version 1.21 has been created using the terraform eks m
 
 The cluster is named Cardinal-EKS:
 
-> kubectl cluster-info
+    > kubectl cluster-info
 
 Kubernetes control plane is running at https://FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
 CoreDNS is running at https://FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
 
 The external ip of the cluster/API server:
->  nslookup FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
+    >  nslookup FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
 
 Non-authoritative answer:
 
@@ -32,7 +32,7 @@ Addresses:  13.36.31.169
           13.39.40.135
           
 
-> kubectl get nodes -o wide
+    > kubectl get nodes -o wide
 
 NAME                                      STATUS   ROLES    AGE     VERSION                INTERNAL-IP   EXTERNAL-IP   OS-IMAGE         KERNEL-VERSION CONTAINER-RUNTIME
 
