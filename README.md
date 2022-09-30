@@ -19,7 +19,7 @@ CoreDNS is running at https://FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks
 
 
 The external ip of the cluster/API server:
-    >  nslookup FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
+    > nslookup FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
 
 Non-authoritative answer:
 
