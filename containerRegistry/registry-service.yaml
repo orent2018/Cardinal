@@ -11,5 +11,5 @@ spec:
   ports:
   - port: 5000
     targetPort: 5000
-  externalTraficPolicy: local
+  externalTrafficPolicy: local
   type: LoadBalancer
