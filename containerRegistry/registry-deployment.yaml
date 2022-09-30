@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cardinal-repository-k8s
+  namespace: registry
+  labels:
+    app: cardinal-repository-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cardinal-repository-k8s
+  template:
+    metadata:
+      labels:
+        app: cardinal-repository-k8s
+    spec:
+      volumes:
+      - name: registry-vol
+        persistentVolumeClaim:
+          claimName: container-registry-pvc
+      - name: certs-vol
+        secret:
+          secretName: certs-secret
+      containers:
+        - image: registry:2
+          name: cardinal-repository-k8s
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: REGISTRY_HTTP_TLS_CERTIFICATE
+            value: "/certs/tls.crt"
+          - name: REGISTRY_HTTP_TLS_KEY
+            value: "/certs/tls.key"
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+          - name: registry-vol
+            mountPath: "/var/lib/registry"
+          - name: certs-vol
+            mountPath: "/certs"
+            readOnly: true
