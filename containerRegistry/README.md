@@ -17,4 +17,22 @@ Uses a secret built from the private key and certificate created:
 
 2) Create deployment that uses the PV created above, the secret containing the regsitry private key and certificate and using the registry image from dockerhub.
 
-3) Create a service to allow access to the private docker registry
+3) Create a loadbalancer service to allow access to the private docker registry
+
+The created service:
+
+    > kubectl get service -n registry
+    
+    NAME                TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)          AGE
+    cardinal-registry   LoadBalancer   172.20.181.17   a8df898d9439d47f192b12f0fd82561c-1015703581.eu-west-3.elb.amazonaws.com   5000:32757/TCP   9s
+    
+The external IP of the docker regsitry is: 
+
+    > nslookup a8df898d9439d47f192b12f0fd82561c-1015703581.eu-west-3.elb.amazonaws.com
+    
+    Non-authoritative answer:
+    Server:  Box.Home
+    Address:  fe80::16ae:dbff:fecf:4888
+    
+    Name:    a8df898d9439d47f192b12f0fd82561c-1015703581.eu-west-3.elb.amazonaws.com
+    Address:  15.237.15.239
