@@ -32,6 +32,7 @@ Name:    FA4A671FB6E29E678BC0313AEE968B3E.gr7.eu-west-3.eks.amazonaws.com
 Addresses:  13.36.31.169
           13.39.40.135
           
+The worker nodes are:
 
     > kubectl get nodes -o wide
 
