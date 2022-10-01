@@ -38,8 +38,8 @@ The external IP of the docker regsitry is:
     Address:  15.237.15.239
     
     
-    Additional steps to be carried out
-    ----------------------------------
+Additional steps to be carried out
+----------------------------------
     
     1) The ceritificate for the registry needs to be copied to all the nodes or made available through a daemonset.
     
