@@ -5,7 +5,7 @@ Create a dedicated namespace called registry:
 
     > kubectl create namespace registry
     
-Use openssl to create a private key and certificate for the registry service:
+Use openssl to create a (self signed) private key and certificate for the registry service:
 
     > openssl req -x509 -newkey rsa:4096 -days 365 -nodes -sha256 -keyout certs/tls.key -out certs/tls.crt
    
@@ -36,3 +36,11 @@ The external IP of the docker regsitry is:
     
     Name:    a8df898d9439d47f192b12f0fd82561c-1015703581.eu-west-3.elb.amazonaws.com
     Address:  15.237.15.239
+    
+    
+    Additional steps to be carried out
+    ----------------------------------
+    
+    1) The ceritificate for the registry needs to be copied to all the nodes or made available through a daemonset.
+    
+    2) Authentication needs to be added to the registry to restrict access to it at least through the use of user and passwd (e.g. htpasswd).
